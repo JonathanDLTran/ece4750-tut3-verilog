@@ -24,6 +24,14 @@ module top;
 
   // Simulate the registered incrementer
 
+  tut3_verilog_regincr_RegIncr reg_incr
+  (
+  .clk (clk),
+  .reset (reset),
+  .in_ (in_),
+  .out (out)
+  );
+
   initial begin
 
     // Dump waveforms

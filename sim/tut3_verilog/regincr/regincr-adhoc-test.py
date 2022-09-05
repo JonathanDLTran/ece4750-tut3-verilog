@@ -30,11 +30,14 @@ input_values.extend( [0]*3 )
 # insert code here for constructing and elaborating a RegIncr model.
 # ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+model = RegIncr()
+model.elaborate()
+
 # Apply the Verilog import passes and the default pass group
 
 model.apply( VerilogPlaceholderPass() )
 model = VerilogTranslationImportPass()( model )
-model.apply( DefaultPassGroup() )
+model.apply( DefaultPassGroup(vcdwave="regincr-adhoc-test.vcd") )
 
 # Reset simulator
 
@@ -57,3 +60,4 @@ for input_value in input_values:
 
   model.sim_tick()
 
+  # model.print_textwave()
